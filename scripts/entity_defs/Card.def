@@ -1,0 +1,28 @@
+<root>
+	<Properties>
+    <Suit>
+      <Type>UNICODE</Type>
+      <Flags>BASE_AND_CLIENT</Flags>
+      <Persistent>true</Persistent>
+    </Suit>
+
+    <Number>
+      <Type>UNICODE</Type>
+      <Flags>BASE_AND_CLIENT</Flags>
+    </Number>
+    
+	</Properties>
+
+	<ClientMethods>
+	</ClientMethods>
+
+	<BaseMethods>
+    <reqCreateName>
+      <arg>UNICODE</arg>
+    </reqCreateName>
+	</BaseMethods>
+
+	<CellMethods>
+	</CellMethods>
+
+</root>

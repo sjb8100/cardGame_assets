@@ -1,0 +1,112 @@
+<root>
+	<Properties>
+		<roomKey>
+			<Type>			SPACE_KEY			</Type>
+			<Flags>			BASE_AND_CLIENT				</Flags>
+			<Persistent>			true				</Persistent>
+		</roomKey>
+    <name>
+      <Type>UNICODE</Type>
+      <Flags>OTHER_CLIENTS</Flags>
+    </name>
+    <intro>
+      <Type>UNICODE</Type>
+      <Flags>OTHER_CLIENTS</Flags>
+    </intro>
+    <isPlaying>
+      <Type>INT16</Type>
+      <Flags>OTHER_CLIENTS</Flags>
+    </isPlaying>
+    <seatsData>
+      <Type>SEATS_INFO</Type>
+      <Flags>OTHER_CLIENTS</Flags>
+      <default> </default>
+    </seatsData>
+    <openCard>
+      <Type>INT16</Type>
+      <Flags>OTHER_CLIENTS</Flags>
+    </openCard>
+    <raiseIndex>
+      <Type>INT32</Type>
+      <Flags>OTHER_CLIENTS</Flags>
+    </raiseIndex>
+    <hiddenCards>
+      <Type> ARRAY <of> INT32 </of>
+    </Type>
+      <Flags>OWN_CLIENT</Flags>
+    </hiddenCards>
+    <hiddenCardsOpen>
+      <Type>
+        ARRAY <of> INT32 </of>
+      </Type>
+      <Flags>OTHER_CLIENTS</Flags>
+    </hiddenCardsOpen>
+    <highestPoint>
+      <Type>INT16</Type>
+      <Flags>OTHER_CLIENTS</Flags>
+    </highestPoint>
+    <landlordIndex>
+      <Type>INT16</Type>
+      <Flags>OTHER_CLIENTS</Flags>
+    </landlordIndex>
+    <playIndex>
+      <Type>INT16</Type>
+      <Flags>OTHER_CLIENTS</Flags>
+    </playIndex>
+    <lastPlayIndex>
+      <Type>INT16</Type>
+      <Flags>OTHER_CLIENTS</Flags>
+    </lastPlayIndex>
+    <lastPlayCards>
+      <Type>
+        ARRAY <of> INT32 </of>
+      </Type>
+      <Flags>OTHER_CLIENTS</Flags>
+    </lastPlayCards>
+    <isGameOver>
+      <Type>INT16</Type>
+      <Flags>OTHER_CLIENTS</Flags>
+    </isGameOver>
+	</Properties>
+
+	<ClientMethods>
+	</ClientMethods>
+
+	<BaseMethods>
+		<enterRoom>
+			<Arg>		ENTITYCALL		</Arg>
+		</enterRoom>
+
+		<leaveRoom>
+			<Arg>		ACCOUNT_ID		</Arg>
+		</leaveRoom>
+
+    <setIsPlaying>
+      <Arg>		SPACE_KEY		</Arg>
+    </setIsPlaying>
+
+		<onEnter>
+			<Arg>		ENTITYCALL		</Arg>
+		</onEnter>
+
+		<onLeave>
+			<Arg>		ACCOUNT_ID		</Arg>
+		</onLeave>
+	</BaseMethods>
+
+	<CellMethods>
+		<onEnter>
+			<Arg>		ENTITYCALL		</Arg>
+		</onEnter>
+
+		<onLeave>
+			<Arg>		ACCOUNT_ID		</Arg>
+		</onLeave>
+    <setIsPlaying>
+      <Arg>INT16</Arg>
+    </setIsPlaying>
+    <reqGameInit />
+    
+	</CellMethods>
+
+</root>

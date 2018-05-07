@@ -1,0 +1,44 @@
+<root>
+	<Properties>
+	</Properties>
+
+	<ClientMethods>
+	</ClientMethods>
+
+	<BaseMethods>
+    <reqCreateRoom>
+      <Arg>UNICODE</Arg><!--name-->
+      <Arg>UNICODE</Arg><!--introduction-->
+      <Arg>UNICODE</Arg><!--password-->
+    </reqCreateRoom>
+    <findRoom>
+      <Arg>		SPACE_KEY		</Arg><!-- roomKey-->
+    </findRoom>
+		<reqJoinRoom>
+			<Arg>		ENTITYCALL		</Arg><!-- player-->
+			<Arg>		SPACE_KEY		</Arg><!-- roomKey-->
+      <Arg>		UNICODE		</Arg><!-- password-->
+    </reqJoinRoom>
+    <reqEnterWorld>
+      <Arg>		ENTITYCALL		</Arg><!-- player-->
+      <Arg>		SPACE_KEY		</Arg><!-- roomKey-->
+    </reqEnterWorld>
+    <leaveRoom>
+      <Arg>		ENTITYCALL			</Arg>
+      <Arg>		SPACE_KEY		</Arg>
+    </leaveRoom>
+	
+		<onRoomLoseCell>
+			<Arg>		SPACE_KEY		</Arg>
+		</onRoomLoseCell>
+		
+		<onRoomGetCell>
+			<Arg>		ENTITYCALL			</Arg>
+			<Arg>		SPACE_KEY		</Arg>
+		</onRoomGetCell>
+	</BaseMethods>
+
+	<CellMethods>
+	</CellMethods>
+
+</root>

@@ -1,0 +1,195 @@
+<root>
+  <Interfaces>
+    <Interface>	EntityCommon		</Interface>
+  </Interfaces>
+  
+	<Properties>
+    <roomKey>
+      <Type>  SPACE_KEY </Type>
+      <Flags> BASE_AND_CLIENT  </Flags>
+    </roomKey>
+    <dbid>
+      <Type>INT16</Type>
+      <Flags> ALL_CLIENTS  </Flags>
+    </dbid>
+    <name>
+      <Type>	UNICODE	</Type>
+      <Flags> BASE_AND_CLIENT  </Flags>
+      <DatabaseLength> 64 </DatabaseLength>
+      <Persistent>  true  </Persistent>
+    </name>
+    <nameC>
+      <Type>	UNICODE	</Type>
+      <Flags> ALL_CLIENTS  </Flags>
+      <DatabaseLength> 64 </DatabaseLength>
+    </nameC>
+    <winCount>
+      <Type>	INT32	</Type>
+      <Flags> ALL_CLIENTS  </Flags>
+      <Persistent>  true  </Persistent>
+    </winCount>
+    <loseCount>
+      <Type>	INT32	</Type>
+      <Flags> ALL_CLIENTS  </Flags>
+      <Persistent>  true  </Persistent>
+    </loseCount>
+    <state>
+      <Type>  INT16 </Type>
+      <Flags> BASE_AND_CLIENT  </Flags>
+      <Persistent>  true  </Persistent>
+    </state>
+    <seatIndex>
+      <Type>INT16</Type>
+      <Flags> ALL_CLIENTS </Flags>
+    </seatIndex>
+    <handCards>
+      <Type> ARRAY <of> INT32 </of> </Type>
+      <Flags> OWN_CLIENT </Flags>
+    </handCards>
+    <handCardsCount>
+      <Type> INT32 </Type>
+      <Flags> OTHER_CLIENTS </Flags>
+    </handCardsCount>
+    <playCards>
+      <Type> ARRAY <of> INT32 </of> </Type>
+      <Flags> ALL_CLIENTS </Flags>
+    </playCards>
+    <message>
+      <Type> INT32 </Type>
+      <Flags> ALL_CLIENTS </Flags>
+    </message>
+    <gameResult>
+      <Type> INT32 </Type>
+      <Flags> OWN_CLIENT </Flags>
+    </gameResult>
+</Properties>
+
+	<ClientMethods>
+    <onEnterSetName>
+      <Arg>UNICODE</Arg><!-- name-->
+    </onEnterSetName>
+    <onEnterHall>
+      <Arg>DBID</Arg><!-- dbid-->
+    </onEnterHall>
+    <onSetNameFailed>
+      <Arg>UINT16</Arg><!-- retcode-->
+      <Arg>UNICODE</Arg><!-- name-->
+    </onSetNameFailed>
+    <onSetNameSuccessfully>
+      <Arg>UNICODE</Arg><!-- name-->
+    </onSetNameSuccessfully>
+    <onReqRoomsByParams>
+      <Arg>ROOM_INFOS_LIST</Arg><!-- rooms-->
+    </onReqRoomsByParams>
+    <onReqJoinRoomFailed>
+      <Arg>UINT16</Arg><!-- retcode-->
+    </onReqJoinRoomFailed>
+    <onReqJoinRoomSuccess>
+      <Arg>UINT16</Arg><!-- retcode-->
+    </onReqJoinRoomSuccess>
+    <onReqRoomPassword>
+      <Arg>UNICODE</Arg><!-- password-->
+    </onReqRoomPassword>
+    <onReqPlayersInfo>
+      <Arg>SEATS_INFO</Arg><!-- 玩家信息-->
+    </onReqPlayersInfo>
+    <onReqExitRoom>
+      <Arg>INT64</Arg><!-- entityId-->
+    </onReqExitRoom>
+	</ClientMethods>
+
+	<BaseMethods>
+    <reqSetName>
+      <Exposed />
+      <Arg>UNICODE</Arg><!-- name-->
+    </reqSetName>
+    <reqCreateRoom>
+      <Exposed />
+      <Arg>UNICODE</Arg><!-- name-->
+      <Arg>UNICODE</Arg><!-- introduction-->
+      <Arg>UNICODE</Arg><!-- password-->
+    </reqCreateRoom>
+    <reqRoomsByParams>
+      <Exposed />
+      <Arg>UNICODE</Arg><!-- nameOrIntro-->
+      <Arg>INT16</Arg><!-- isFull-->
+      <Arg>INT16</Arg><!-- isPlaying-->
+      <Arg>INT16</Arg><!-- hasPassword-->
+    </reqRoomsByParams>
+    <reqJoinRoom>
+      <Exposed />
+      <Arg>INT64</Arg><!--roomKey-->
+      <Arg>UNICODE</Arg><!--password-->
+    </reqJoinRoom>
+    <reqEnterWorld>
+      <Exposed />
+      <Arg>INT64</Arg><!--roomKey-->
+    </reqEnterWorld>
+    <reqRoomPassword>
+      <Exposed />
+      <Arg>INT64</Arg><!--roomKey-->
+    </reqRoomPassword>
+    <reqEditRoomPassword>
+      <Exposed />
+      <Arg>INT64</Arg><!--roomKey-->
+      <Arg>UNICODE</Arg><!--password-->
+    </reqEditRoomPassword>
+    <reqExitRoom>
+      <Exposed />
+      <Arg>INT64</Arg><!--roomKey-->
+    </reqExitRoom>
+    <reqPlayGame>
+      <Exposed />
+      <Arg>INT64</Arg><!--roomKey-->
+    </reqPlayGame>
+    <reqExitGame>
+      <Exposed />
+      <Arg>INT64</Arg><!--roomKey-->
+    </reqExitGame>
+	</BaseMethods>
+
+	<CellMethods>
+    <reqRoomInfo>
+      <Exposed />
+      <Arg>INT64</Arg><!--roomKey-->
+    </reqRoomInfo>
+    <reqReadyPlay>
+      <Exposed />
+      <Arg>INT64</Arg><!--roomKey-->
+      <Arg>INT32</Arg><!--isReady-->
+    </reqReadyPlay>
+    <reqEditRoomInfo>
+      <Exposed />
+      <Arg>INT64</Arg><!--roomKey-->
+      <Arg>UNICODE</Arg><!--name-->
+      <Arg>UNICODE</Arg><!--intro-->
+    </reqEditRoomInfo>
+    <reqPlayersInfo>
+      <Exposed />
+      <Arg>INT64</Arg><!--roomKey-->
+    </reqPlayersInfo>
+    <reqGameInit>
+      <Exposed />
+      <Arg>INT64</Arg><!--roomKey-->
+    </reqGameInit>
+    <callPoint>
+      <Exposed />
+      <Arg>INT32</Arg><!--point-->
+    </callPoint>
+    <reqPlayCards>
+      <Exposed />
+      <Arg>ARRAY <of> INT32</of></Arg><!-- cards list-->
+    </reqPlayCards>
+    <passCards>
+      <Exposed />
+      <Arg>INT32</Arg><!--pass code-->
+    </passCards>
+    <reqAddCard>
+      <Exposed />
+      <Arg>INT32</Arg><!--color-->
+      <Arg>INT32</Arg><!--card num-->
+    </reqAddCard>
+	  
+</CellMethods>
+
+</root>

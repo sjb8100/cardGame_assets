@@ -1,0 +1,89 @@
+<root>
+  <DBID>				UINT64		</DBID>
+  <SPACE_KEY>				UINT64		</SPACE_KEY>
+  <ACCOUNT_ID>			INT32		</ACCOUNT_ID>
+
+  <PLAYER_INFOS>
+    FIXED_DICT
+    <implementedBy>SEATS_INFO.player_info_inst</implementedBy>
+    <Properties>
+      <id>
+        <Type>	ACCOUNT_ID	</Type>
+        <default>0</default>
+      </id>
+      <name>
+        <Type>	UNICODE	</Type>
+        <default> </default>
+      </name>
+      <winCount>
+        <Type>	UINT16	</Type>
+        <default>0</default>
+      </winCount>
+      <loseCount>
+        <Type>	UINT16	</Type>
+        <default>0</default>
+      </loseCount>
+      <isReady>
+        <Type>	INT8	</Type>
+        <default>0</default>
+      </isReady>
+      <seatIndex>
+        <Type>	INT8	</Type>
+        <default>0</default>
+      </seatIndex>
+      <isRoomMaster>
+        <Type>	INT8	</Type>
+        <default>0</default>
+      </isRoomMaster>
+    </Properties>
+  </PLAYER_INFOS>
+
+  <SEATS_INFO>
+    FIXED_DICT
+    <implementedBy>SEATS_INFO.seats_info_inst</implementedBy>
+    <Properties>
+      <values>
+        <Type>
+          ARRAY <of> PLAYER_INFOS </of>
+        </Type>
+      </values>
+    </Properties>
+  </SEATS_INFO>
+  
+  <ROOM_INFOS>
+    FIXED_DICT
+    <implementedBy>ROOM_INFOS.room_info_inst</implementedBy>
+    <Properties>
+      <roomKey>
+        <Type>	SPACE_KEY	</Type>
+      </roomKey>
+      <name>
+        <Type>	UNICODE	</Type>
+      </name>
+      <intro>
+        <Type>	UNICODE	</Type>
+      </intro>
+      <playerCount>
+        <Type>	UINT8	</Type>
+      </playerCount>
+      <isPlaying>
+        <Type>	UINT8	</Type>
+      </isPlaying>
+      <hasPassword>
+        <Type>	UINT8	</Type>
+      </hasPassword>
+    </Properties>
+  </ROOM_INFOS>
+
+  <ROOM_INFOS_LIST>
+    FIXED_DICT
+    <implementedBy>ROOM_INFOS.room_info_list_inst</implementedBy>
+    <Properties>
+      <values>
+        <Type>
+          ARRAY <of> ROOM_INFOS </of>
+        </Type>
+      </values>
+    </Properties>
+  </ROOM_INFOS_LIST>
+</root>
